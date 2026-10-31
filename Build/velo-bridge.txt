@@ -1,0 +1,1 @@
+<script>document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("a"):null;if(!a)return;var h=a.getAttribute("href")||"";if(a.target!=="_top"||h.charAt(0)!=="/")return;e.preventDefault();parent.postMessage({bvaGo:h},"*")},true)</script>

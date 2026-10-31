@@ -1,0 +1,72 @@
+<!--title:Photo Gallery | Blue Valley Acres-->
+<style>
+.pg-top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.pg-f{display:flex;flex-wrap:wrap;gap:8px}
+.pg-f button{min-height:44px;padding:10px 16px;border-radius:8px;border:1px solid var(--ln);background:#fff;font:500 15px var(--sans);color:var(--sp);cursor:pointer;transition:background .2s var(--e),color .2s var(--e)}
+.pg-f button[aria-pressed="true"],.pg-f button:hover{background:var(--sp);color:#fff;border-color:var(--sp)}
+.pg-g{columns:3 320px;column-gap:16px}
+.pg-g figure{break-inside:avoid;margin:0 0 16px}
+.pg-g figure[hidden]{display:none}
+.pg-g a{display:block;border-radius:12px;overflow:hidden}
+.pg-g img{width:100%;height:auto;transition:transform 1.4s var(--e)}
+.pg-g a:hover img{transform:scale(1.04)}
+.pg-g figcaption{font-size:14px;color:#556058;padding:10px 2px 0}
+</style>
+<main>
+<section class="sec" style="padding-bottom:56px">
+  <div class="w">
+    <span class="lb in">Our community</span>
+    <h1 class="h1 in" style="margin:14px 0 18px">A place worth looking after.</h1>
+    <p class="ld in rd">From changing seasons to quiet moments along the river country, these images offer a glimpse of the place we share.</p>
+  </div>
+</section>
+<section class="sec" style="padding-top:0">
+  <div class="w">
+    <div class="pg-top">
+      <div class="pg-f" role="group" aria-label="Filter photos">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="river" aria-pressed="false">River</button>
+        <button type="button" data-f="landscape" aria-pressed="false">Landscape</button>
+        <button type="button" data-f="seasons" aria-pressed="false">Seasons</button>
+        <button type="button" data-f="fishing" aria-pressed="false">Fishing</button>
+        <button type="button" data-f="wildlife" aria-pressed="false">Wildlife</button>
+      </div>
+      <p class="mu">Select a photo to open it full size in a new tab.</p>
+    </div>
+    <div class="pg-g" id="pg">
+      <figure data-c="landscape river"><a href="https://static.wixstatic.com/media/2fde66_55475c9015f54383bf5ee3f3f3590ca3~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_55475c9015f54383bf5ee3f3f3590ca3~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Aerial view of the Blue River winding through the valley" loading="lazy"></a><figcaption>The Blue River from above</figcaption></figure>
+      <figure data-c="landscape seasons"><a href="https://static.wixstatic.com/media/2fde66_30f7951d54f142c5ab5923994a756359~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_30f7951d54f142c5ab5923994a756359~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Green summer meadows along the river with snow on the peaks" loading="lazy"></a><figcaption>Summer in the valley</figcaption></figure>
+      <figure data-c="river"><a href="https://static.wixstatic.com/media/2fde66_17b715628cef4d1c9b1af05f5e6c004c~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_17b715628cef4d1c9b1af05f5e6c004c~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Evening light on a bend of the Blue River" loading="lazy"></a><figcaption>Evening on the river</figcaption></figure>
+      <figure data-c="landscape river seasons"><a href="https://static.wixstatic.com/media/2fde66_eb2bebc793784842b0268942675a27fb~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_eb2bebc793784842b0268942675a27fb~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="A wide bend of the Blue River from the bluffs in autumn" loading="lazy"></a><figcaption>Autumn river bend</figcaption></figure>
+      <figure data-c="landscape river"><a href="https://static.wixstatic.com/media/2fde66_fd9d98a5b6e5402da2ed5a86f3e61c2c~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_fd9d98a5b6e5402da2ed5a86f3e61c2c~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="The Blue River winding through green meadows toward the mountains" loading="lazy"></a><figcaption>Summer in the Blue River valley</figcaption></figure>
+      <figure data-c="fishing seasons"><a href="https://static.wixstatic.com/media/2fde66_b5c6482166854339a67922a5bc8b1396~mv2.webp" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_b5c6482166854339a67922a5bc8b1396~mv2.webp/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Anglers wading the Blue River among golden cottonwoods" loading="lazy"></a><figcaption>Autumn fishing</figcaption></figure>
+      <figure data-c="fishing seasons"><a href="https://static.wixstatic.com/media/2fde66_791cfcfad0d44683a36ab8893e7e722d~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_791cfcfad0d44683a36ab8893e7e722d~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Anglers on the river below snow-dusted peaks in autumn" loading="lazy"></a><figcaption>Snow on the peaks, gold on the river</figcaption></figure>
+      <figure data-c="fishing river"><a href="https://static.wixstatic.com/media/2fde66_78a44d63165b479996883475566b1984~mv2.webp" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_78a44d63165b479996883475566b1984~mv2.webp/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="An angler casting on the Blue River" loading="lazy"></a><figcaption>A cast on the Blue</figcaption></figure>
+      <figure data-c="fishing"><a href="https://static.wixstatic.com/media/2fde66_2e6451fe38a645b3971c2cc9eeb2442c~mv2.webp" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_2e6451fe38a645b3971c2cc9eeb2442c~mv2.webp/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Close-up of a rainbow trout's spotted flank" loading="lazy"></a><figcaption>Rainbow trout</figcaption></figure>
+      <figure data-c="landscape seasons"><a href="https://static.wixstatic.com/media/2fde66_9397bd33cccc4014ba0d7a8fe4c6d620~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_9397bd33cccc4014ba0d7a8fe4c6d620~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Clouds resting on the mountains above autumn cottonwoods" loading="lazy"></a><figcaption>Clouds on the range</figcaption></figure>
+      <figure data-c="river seasons"><a href="https://static.wixstatic.com/media/2fde66_f7df7a420f8c41d39d21107d25c055bc~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_f7df7a420f8c41d39d21107d25c055bc~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Golden cottonwoods along a bend of the Blue River" loading="lazy"></a><figcaption>Autumn along the river</figcaption></figure>
+      <figure data-c="river"><a href="https://static.wixstatic.com/media/2fde66_87360668ddd044c89eecc49f7c00a742~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_87360668ddd044c89eecc49f7c00a742~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Clear water running over rocks on the Blue River in spring" loading="lazy"></a><figcaption>Spring on the Blue River</figcaption></figure>
+      <figure data-c="river seasons"><a href="https://static.wixstatic.com/media/2fde66_a0055d0b6886412fb3112ed23d5eb289~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_a0055d0b6886412fb3112ed23d5eb289~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="The river winding through autumn cottonwoods" loading="lazy"></a><figcaption>River through the cottonwoods</figcaption></figure>
+      <figure data-c="landscape"><a href="https://static.wixstatic.com/media/2fde66_2c19ce144849492585578619ef1ca226~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_2c19ce144849492585578619ef1ca226~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Lightning and a rainbow over the river during a summer storm" loading="lazy"></a><figcaption>Summer storm</figcaption></figure>
+      <figure data-c="landscape seasons"><a href="https://static.wixstatic.com/media/2fde66_593c6d6bbb4a4c17956282ca1b39b6a1~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_593c6d6bbb4a4c17956282ca1b39b6a1~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Pink sunset over the valley and river" loading="lazy"></a><figcaption>Sunset over the valley</figcaption></figure>
+      <figure data-c="landscape"><a href="https://static.wixstatic.com/media/2fde66_2a2a06edb75c4c0e9f33adf9c1fb3574~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_2a2a06edb75c4c0e9f33adf9c1fb3574~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Sunset over the river valley" loading="lazy"></a><figcaption>Last light</figcaption></figure>
+      <figure data-c="landscape"><a href="https://static.wixstatic.com/media/2fde66_1e73b5cca4d6442ba098ce98fed933c9~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_1e73b5cca4d6442ba098ce98fed933c9~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Evening light on the hills above the river" loading="lazy"></a><figcaption>Evening on the hills</figcaption></figure>
+      <figure data-c="landscape seasons"><a href="https://static.wixstatic.com/media/2fde66_330039dcfe42442385b801f1dbebc634~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_330039dcfe42442385b801f1dbebc634~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Pink and violet clouds reflected in still water at dusk" loading="lazy"></a><figcaption>Evening light</figcaption></figure>
+      <figure data-c="landscape river"><a href="https://static.wixstatic.com/media/2fde66_69cbcfabd451400aa0d5a8b9f5266d84~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_69cbcfabd451400aa0d5a8b9f5266d84~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Aerial view of the Blue River valley" loading="lazy"></a><figcaption>The valley from above</figcaption></figure>
+      <figure data-c="landscape river"><a href="https://static.wixstatic.com/media/2fde66_700dd7857f7b4175ae2661ec16df1b88~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_700dd7857f7b4175ae2661ec16df1b88~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Aerial view of ranchland along the Blue River" loading="lazy"></a><figcaption>Ranchland along the river</figcaption></figure>
+      <figure data-c="landscape"><a href="https://static.wixstatic.com/media/2fde66_2c7e76149fd04daf9bf14e7856b39220~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_2c7e76149fd04daf9bf14e7856b39220~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Dusk over the ridgeline" loading="lazy"></a><figcaption>Dusk on the ridge</figcaption></figure>
+      <figure data-c="landscape"><a href="https://static.wixstatic.com/media/2fde66_d78eddb7cb444984ac885a11beb3b2ef~mv2.webp" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_d78eddb7cb444984ac885a11beb3b2ef~mv2.webp/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="Panorama of the ridge above the valley" loading="lazy"></a><figcaption>The ridge</figcaption></figure>
+      <figure data-c="wildlife"><a href="https://static.wixstatic.com/media/2fde66_046a7399875549af9ecc7d64569c9216~mv2.jpg" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_046a7399875549af9ecc7d64569c9216~mv2.jpg/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="A moose standing in willows along the river" loading="lazy"></a><figcaption>Moose in the willows</figcaption></figure>
+      <figure data-c="wildlife"><a href="https://static.wixstatic.com/media/2fde66_44f9226127454fa88c430d7d077462ed~mv2.webp" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_44f9226127454fa88c430d7d077462ed~mv2.webp/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="A bald eagle perched beside the river" loading="lazy"></a><figcaption>Bald eagle</figcaption></figure>
+      <figure data-c="wildlife"><a href="https://static.wixstatic.com/media/2fde66_568c671d68ea43338c843246536aff22~mv2.webp" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_568c671d68ea43338c843246536aff22~mv2.webp/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="A great horned owl in flight" loading="lazy"></a><figcaption>Great horned owl</figcaption></figure>
+      <figure data-c="wildlife"><a href="https://static.wixstatic.com/media/2fde66_33157151c483461094523482d24d6d08~mv2.webp" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/2fde66_33157151c483461094523482d24d6d08~mv2.webp/v1/fit/w_1000,h_1000,q_80/photo.jpg" alt="A red fox among winter willows" loading="lazy"></a><figcaption>Red fox</figcaption></figure>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+document.querySelectorAll('.pg-f button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('.pg-f button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+  document.querySelectorAll('#pg figure').forEach(function(f){f.hidden=!(b.dataset.f==='all'||f.dataset.c.split(' ').indexOf(b.dataset.f)>-1)});
+})});
+</script>

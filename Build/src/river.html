@@ -1,0 +1,123 @@
+<!--title:River Flow and Reservoir | Blue Valley Acres-->
+<style>
+html{background:linear-gradient(180deg,#706240 0%,#5d5135 100%) no-repeat;background-size:100% 100%}
+.cn-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.cn-grid--3{grid-template-columns:1fr 1fr 1fr}
+.cn-grid--3 .cn-big{font-size:clamp(44px,4.6vw,64px)}
+.cn-card{position:relative;display:flex;flex-direction:column;gap:14px;padding:30px;border-radius:12px;background:#fff;border:1px solid var(--ln)}
+.cn-card--dk{background:var(--sp);color:#fff;border-color:transparent}
+.cn-card--dk .lb{color:#e7d6ae}
+.cn-card--dk .mu,.cn-card--dk .cn-sub{color:rgba(255,255,255,.72)}
+.cn-card--dk a{color:#e7d6ae}
+.cn-top{display:flex;justify-content:space-between;align-items:start;gap:16px}
+.cn-live{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;background:rgba(199,169,107,.18);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6b5527;white-space:nowrap}
+.cn-card--dk .cn-live{background:rgba(255,255,255,.12);color:#e7d6ae}
+.cn-live i{width:7px;height:7px;border-radius:50%;background:var(--g);animation:cnPulse 2s ease-in-out infinite}
+@keyframes cnPulse{50%{opacity:.35}}
+.cn-big{font-family:var(--serif);font-size:clamp(56px,7vw,92px);line-height:1;letter-spacing:-.02em;color:var(--sp)}
+.cn-card--dk .cn-big{color:#fff}
+.cn-big small{font:500 16px var(--sans);letter-spacing:0;color:#556058;margin-left:10px}
+.cn-card--dk .cn-big small{color:rgba(255,255,255,.7)}
+.cn-sub{font-size:15px;color:#556058}
+.cn-spark{width:100%;height:120px;display:block;margin-top:6px}
+.cn-spark path{fill:none;stroke:var(--s);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.cn-spark .a{fill:rgba(49,92,104,.12);stroke:none}
+.cn-spark text{font:600 11px var(--sans);fill:#556058;letter-spacing:.06em}
+.cn-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.cn-stat{padding:14px 16px;border-radius:10px;background:var(--iv);border:1px solid var(--ln)}
+.cn-card--dk .cn-stat{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14)}
+.cn-stat b{display:block;font-family:var(--serif);font-weight:500;font-size:26px;color:var(--sp);line-height:1.1}
+.cn-card--dk .cn-stat b{color:#fff}
+.cn-stat span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#556058;font-weight:600}
+.cn-card--dk .cn-stat span{color:rgba(255,255,255,.65)}
+.cn-gauge{height:12px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden;margin-top:6px}
+.cn-gauge i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#7fb3c2,#e7d6ae);transition:width 1.6s var(--e)}
+.cn-wx{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.cn-wx svg{width:72px;height:72px;color:var(--s)}
+.cn-days{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:4px}
+.cn-day{text-align:center;padding:14px 8px;border-radius:10px;background:var(--iv);border:1px solid var(--ln)}
+.cn-day span{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#556058}
+.cn-day svg{width:30px;height:30px;color:var(--s);margin:8px auto}
+.cn-day b{font-weight:500;color:var(--sp)}
+.cn-day em{font-style:normal;color:#556058;margin-left:4px}
+.cn-roads{display:grid;gap:10px}
+.cn-src{font-size:13px;color:#556058;margin-top:auto;padding-top:10px;border-top:1px solid var(--ln)}
+.cn-card--dk .cn-src{border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.6)}
+.cn-err{font-size:15px;color:#9b3b2f}
+@media (max-width:1000px){.cn-grid,.cn-grid--3{grid-template-columns:1fr}}
+@media (max-width:600px){.cn-card{padding:22px 18px}.cn-stats{grid-template-columns:1fr 1fr}.cn-days{grid-template-columns:repeat(2,1fr)}.cn-wx{grid-template-columns:1fr}}
+</style>
+<main>
+<section class="sec" style="padding-top:0">
+  <div class="w">
+    <header class="hd rv">
+      <span class="ix">03</span>
+      <div><span class="lb">Blue River</span><h2 class="h2">River flow and reservoir.</h2></div>
+      <p class="mu">Readings refresh each time you open this page.</p>
+    </header>
+    <div class="cn-grid cn-grid--3">
+      <article class="cn-card rv" aria-live="polite">
+        <div class="cn-top"><div><span class="lb">USGS 09057500</span><h3 class="h3" style="margin-top:8px">Blue River below Green Mountain Reservoir</h3></div><span class="cn-live"><i aria-hidden="true"></i>Live</span></div>
+        <div class="cn-big" id="cfs">—<small>ft³/s</small></div>
+        <p class="cn-sub" id="cfsSub">Loading the latest reading…</p>
+        <svg class="cn-spark" id="spark" viewBox="0 0 600 120" preserveAspectRatio="none" role="img" aria-label="Seven-day flow chart"></svg>
+        <div class="cn-stats"><div class="cn-stat"><b id="s7max">—</b><span>7-day high</span></div><div class="cn-stat"><b id="s7min">—</b><span>7-day low</span></div><div class="cn-stat"><b id="s24">—</b><span>24-hour change</span></div></div>
+        <p class="cn-src">Source: <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09057500" target="_blank" rel="noopener">USGS Water Data, station 09057500</a>. Provisional data, subject to revision.</p>
+      </article>
+      <article class="cn-card rv" aria-live="polite">
+        <div class="cn-top"><div><span class="lb">USGS 09058000</span><h3 class="h3" style="margin-top:8px">Colorado River near Kremmling</h3></div><span class="cn-live"><i aria-hidden="true"></i>Live</span></div>
+        <div class="cn-big" id="cfs2">—<small>ft³/s</small></div>
+        <p class="cn-sub" id="cfsSub2">Loading the latest reading…</p>
+        <svg class="cn-spark" id="spark2" viewBox="0 0 600 120" preserveAspectRatio="none" role="img" aria-label="Seven-day flow chart"></svg>
+        <div class="cn-stats"><div class="cn-stat"><b id="s7max2">—</b><span>7-day high</span></div><div class="cn-stat"><b id="s7min2">—</b><span>7-day low</span></div><div class="cn-stat"><b id="s242">—</b><span>24-hour change</span></div></div>
+        <p class="cn-src">Source: <a href="https://waterdata.usgs.gov/monitoring-location/USGS-09058000" target="_blank" rel="noopener">USGS Water Data, station 09058000</a> · <a href="https://www.cleargaugerivers.com/gauge/09058000" target="_blank" rel="noopener">Clear Gauge Rivers</a>. Provisional data.</p>
+      </article>
+      <article class="cn-card cn-card--dk rv" aria-live="polite">
+        <div class="cn-top"><div><span class="lb">Reservoir</span><h3 class="h3" style="margin-top:8px">Green Mountain Reservoir</h3></div><span class="cn-live"><i aria-hidden="true"></i>Daily</span></div>
+        <div class="cn-big" id="pct">—<small>full</small></div>
+        <div class="cn-gauge" aria-hidden="true"><i id="gauge"></i></div>
+        <p class="cn-sub" id="pctSub">Loading the latest reading…</p>
+        <div class="cn-stats" style="grid-template-columns:1fr 1fr"><div class="cn-stat"><b id="af">—</b><span>Acre-feet stored</span></div><div class="cn-stat"><b id="elev">—</b><span>Elevation (ft)</span></div></div>
+        <p class="cn-src">Source: <a href="https://data.usbr.gov/catalog/2225" target="_blank" rel="noopener">U.S. Bureau of Reclamation RISE</a>. Percent of full pool (153,639 acre-feet). Also see <a href="https://westwaterwatch.com/green-mountain-reservoir-level" target="_blank" rel="noopener">West Water Watch</a>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var fmt=function(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d==null?0:d})};
+  var when=function(iso){var d=new Date(iso);return d.toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'America/Denver'})+' MT'};
+  var fail=function(id,msg){var el=$(id);el.className='cn-err';el.textContent=msg};
+  /* USGS streamflow, last 7 days */
+  var gauge=function(site,sfx,label){fetch('https://waterservices.usgs.gov/nwis/iv/?format=json&sites='+site+'&parameterCd=00060&period=P7D').then(function(r){return r.json()}).then(function(d){
+    var ts=d.value.timeSeries[0],v=ts.values[0].value.map(function(p){return{t:new Date(p.dateTime),y:+p.value}}).filter(function(p){return p.y>=0});
+    if(!v.length)throw 0;
+    var last=v[v.length-1],ys=v.map(function(p){return p.y}),mx=Math.max.apply(null,ys),mn=Math.min.apply(null,ys);
+    $('cfs'+sfx).innerHTML=fmt(last.y)+'<small>ft³/s</small>';
+    $('cfsSub'+sfx).textContent='Latest reading '+when(last.t)+'.';
+    $('s7max'+sfx).textContent=fmt(mx);$('s7min'+sfx).textContent=fmt(mn);
+    var ago=v.filter(function(p){return last.t-p.t>=864e5});var prev=ago.length?ago[ago.length-1].y:null;
+    $('s24'+sfx).textContent=prev==null?'—':(last.y-prev>=0?'+':'')+fmt(last.y-prev);
+    var W=600,H=120,pad=14,t0=v[0].t,t1=last.t,span=(t1-t0)||1,rng=(mx-mn)||1;
+    var pts=v.map(function(p){return[(p.t-t0)/span*(W-2*pad)+pad,H-pad-(p.y-mn)/rng*(H-2*pad-16)]});
+    var line='M'+pts.map(function(p){return p[0].toFixed(1)+' '+p[1].toFixed(1)}).join('L');
+    var area=line+'L'+pts[pts.length-1][0].toFixed(1)+' '+(H-pad)+'L'+pts[0][0].toFixed(1)+' '+(H-pad)+'Z';
+    var lbl=function(x,t,a){return'<text x="'+x+'" y="'+(H-2)+'" text-anchor="'+a+'">'+t.toLocaleDateString('en-US',{month:'short',day:'numeric'}).toUpperCase()+'</text>'};
+    $('spark'+sfx).innerHTML='<path class="a" d="'+area+'"/><path d="'+line+'"/>'+lbl(pad,t0,'start')+lbl(W-pad,t1,'end');
+  }).catch(function(){fail('cfsSub'+sfx,'The USGS gauge did not respond. Open the USGS link below for the latest reading.')})};
+  gauge('09057500','');gauge('09058000','2');
+
+  /* Green Mountain Reservoir from USBR RISE: item 21 storage (af), item 22 elevation (ft) */
+  var rise=function(item){return fetch('https://data.usbr.gov/rise/api/result?itemId='+item+'&order%5BdateTime%5D=DESC&itemsPerPage=1',{headers:{accept:'application/vnd.api+json'}}).then(function(r){return r.json()}).then(function(d){return d.data[0].attributes})};
+  Promise.all([rise(21),rise(22)]).then(function(r){
+    var af=+r[0].result,el=+r[1].result,full=153639,pct=Math.max(0,Math.min(100,af/full*100));
+    $('pct').innerHTML=fmt(pct,0)+'%<small>full</small>';
+    $('af').textContent=fmt(af);$('elev').textContent=fmt(el,1);
+    $('pctSub').textContent='Reported '+new Date(r[0].dateTime).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'})+'.';
+    requestAnimationFrame(function(){$('gauge').style.width=pct+'%'});
+  }).catch(function(){fail('pctSub','Reclamation data did not respond. Use the links below for the current level.')});
+
+})();
+</script>

@@ -1,0 +1,79 @@
+<!--title:Live I-70 Cameras | Blue Valley Acres-->
+<style>
+html{background:linear-gradient(180deg,#A89A7A 0%,#706240 100%) no-repeat;background-size:100% 100%}
+.cm-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cm{animation:cmIn .9s var(--e) both;display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:#fff;border:1px solid var(--ln);box-shadow:0 6px 14px rgba(36,42,40,.18),0 30px 60px -22px rgba(36,42,40,.5)}
+.cm__v{position:relative;aspect-ratio:4/3;background:#1d2a26;overflow:hidden}
+.cm__v img,.cm__v video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cm__v video{object-fit:contain;background:#000}
+.cm__tag{position:absolute;left:12px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(24,38,34,.72);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.cm__tag i{width:7px;height:7px;border-radius:50%;background:#7fe0a0;box-shadow:0 0 0 3px rgba(127,224,160,.25)}
+.cm__tag.is-live i{background:#ff6b5e;box-shadow:0 0 0 3px rgba(255,107,94,.25);animation:cmPulse 1.4s ease-in-out infinite}
+@keyframes cmPulse{50%{opacity:.35}}
+@keyframes cmIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.cm__play{position:absolute;inset:0;z-index:2;display:grid;place-items:center;border:0;background:transparent;cursor:pointer;color:#fff}
+.cm__play span{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:rgba(24,38,34,.78);font:600 14px/1 var(--sans);backdrop-filter:blur(6px);transition:transform .24s var(--e),background .24s var(--e)}
+.cm__play:hover span{transform:scale(1.05);background:var(--s)}
+.cm__play svg{width:16px;height:16px}
+.cm__b{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px}
+.cm__b h3{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.2}
+.cm__m{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:#556058}
+.cm__m a{font-weight:600;color:var(--s);text-decoration:none;border-bottom:1.5px solid rgba(49,92,104,.3)}
+.cm__m a:hover{border-color:var(--s)}
+.cm-err{position:absolute;inset:0;z-index:3;display:grid;place-items:center;padding:20px;text-align:center;color:#fff;font-size:14px;background:rgba(24,38,34,.85)}
+.cm-src{font-size:14px;color:#556058;margin-top:22px}
+@media (max-width:1000px){.cm-g{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.cm-g{grid-template-columns:1fr}}
+</style>
+<main>
+<section class="sec sec--st" style="padding-top:0">
+  <div class="w">
+    <header class="hd rv">
+      <span class="ix">02</span>
+      <div><span class="lb">Live I-70 cameras</span><h2 class="h2">See the road before you go.</h2></div>
+      <p class="mu">CDOT cameras between Floyd Hill and Silverthorne, in driving order from Denver.</p>
+    </header>
+    <div class="cm-g" id="cams"></div>
+    <p class="cm-src">Cameras are provided by the Colorado Department of Transportation through <a href="https://www.cotrip.org/" target="_blank" rel="noopener">COtrip.org</a>. Still images refresh about every 15 minutes; press play for the live stream. Streams may pause in heavy weather or when a camera is offline.</p>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+  var cams=[
+    {id:18635,key:"070W24540CAM1RHS",s:1,name:"Floyd Hill",sub:"I-70 MP 245.4 westbound, 1.2 miles east of US 6 / US 40"},
+    {id:19350,key:"070W24245CAM1RHS",s:4,name:"Veterans Memorial Tunnels",sub:"I-70 MP 242.45 westbound at the east portal, Idaho Springs"},
+    {id:19272,key:"070E22700CAM1RHS",s:4,name:"Georgetown",sub:"I-70 MP 227 eastbound, 0.9 miles west of 15th Street"},
+    {id:19361,key:"070E21560CAM1GP2",s:4,name:"Eisenhower Tunnel, east side",sub:"I-70 MP 215.6 eastbound, 0.3 miles east of the tunnel"},
+    {id:18881,key:"070W21180CAM1RHS",s:2,name:"Eisenhower Tunnel, west side",sub:"I-70 MP 211.8 westbound, 1.7 miles west of the tunnel"},
+    {id:19060,key:"070W20800CAM1RHS",s:3,name:"Silverthorne",sub:"I-70 MP 208 westbound, 2.4 miles east of US 6 / CO 9"}
+  ];
+  var grid=document.getElementById("cams"),hlsReady=null;
+  function snap(c){return "https://cocam.carsprogram.org/Snapshots/"+c.key+".flv.png?t="+Math.floor(Date.now()/6e4)}
+  function stream(c){return "https://publicstreamer"+c.s+".cotrip.org/rtplive/"+c.key+"/playlist.m3u8"}
+  function loadHls(){if(hlsReady)return hlsReady;hlsReady=new Promise(function(res,rej){var s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.15/hls.min.js";s.onload=res;s.onerror=rej;document.head.appendChild(s)});return hlsReady}
+  cams.forEach(function(c,i){
+    var el=document.createElement("article");el.className="cm";el.style.animationDelay=(i*90)+"ms";
+    el.innerHTML='<div class="cm__v"><span class="cm__tag"><i aria-hidden="true"></i>Still</span><img alt="'+c.name+' camera view" loading="lazy"><button class="cm__play" type="button" aria-label="Watch '+c.name+' live"><span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch live</span></button></div>'+
+      '<div class="cm__b"><h3>'+c.name+'</h3><div class="mu" style="font-size:14px">'+c.sub+'</div><div class="cm__m"><span class="cm__t">Updated —</span><a href="https://www.cotrip.org/camera-modal/'+c.id+'" target="_blank" rel="noopener">Open on COtrip</a></div></div>';
+    grid.appendChild(el);
+    var img=el.querySelector("img"),tag=el.querySelector(".cm__tag"),btn=el.querySelector(".cm__play"),t=el.querySelector(".cm__t"),box=el.querySelector(".cm__v");
+    function refresh(){img.src=snap(c);t.textContent="Updated "+new Date().toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit",timeZone:"America/Denver"})+" MT"}
+    img.onerror=function(){t.textContent="Image unavailable"};
+    refresh();setInterval(refresh,6e4);
+    btn.addEventListener("click",function(){
+      var v=document.createElement("video");v.muted=true;v.playsInline=true;v.autoplay=true;v.controls=true;v.poster=img.src;
+      box.appendChild(v);btn.remove();tag.classList.add("is-live");tag.lastChild.textContent="Live";
+      var src=stream(c);
+      function fail(){var e=document.createElement("div");e.className="cm-err";e.textContent="Live stream unavailable right now. Open on COtrip for the latest view.";box.appendChild(e)}
+      var native=v.canPlayType("application/vnd.apple.mpegurl")==="probably"||/^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      loadHls().then(function(){
+        if(window.Hls&&Hls.isSupported()){var h=new Hls({enableWorker:false,liveSyncDurationCount:3});h.loadSource(src);h.attachMedia(v);h.on(Hls.Events.MANIFEST_PARSED,function(){v.play().catch(function(){})});h.on(Hls.Events.ERROR,function(e,d){if(d.fatal){if(d.type==="networkError")h.startLoad();else if(d.type==="mediaError")h.recoverMediaError();else fail()}});}
+        else if(native){v.src=src;v.play().catch(fail);}
+        else fail();
+      }).catch(function(){if(native){v.src=src;v.play().catch(fail);}else fail()});
+    });
+  });
+})();
+</script>

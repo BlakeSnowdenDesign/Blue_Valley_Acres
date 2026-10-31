@@ -1,0 +1,110 @@
+<!--title:River Flow, Reservoir, Weather and Roads | Blue Valley Acres-->
+<style>
+html{background:linear-gradient(180deg,#F3F8F0 0%,#A89A7A 100%) no-repeat;background-size:100% 100%}
+.cn-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.cn-grid--3{grid-template-columns:1fr 1fr 1fr}
+.cn-grid--3 .cn-big{font-size:clamp(44px,4.6vw,64px)}
+.cn-card{position:relative;display:flex;flex-direction:column;gap:14px;padding:30px;border-radius:12px;background:#fff;border:1px solid var(--ln)}
+.cn-card--dk{background:var(--sp);color:#fff;border-color:transparent}
+.cn-card--dk .lb{color:#e7d6ae}
+.cn-card--dk .mu,.cn-card--dk .cn-sub{color:rgba(255,255,255,.72)}
+.cn-card--dk a{color:#e7d6ae}
+.cn-top{display:flex;justify-content:space-between;align-items:start;gap:16px}
+.cn-live{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;background:rgba(199,169,107,.18);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6b5527;white-space:nowrap}
+.cn-card--dk .cn-live{background:rgba(255,255,255,.12);color:#e7d6ae}
+.cn-live i{width:7px;height:7px;border-radius:50%;background:var(--g);animation:cnPulse 2s ease-in-out infinite}
+@keyframes cnPulse{50%{opacity:.35}}
+.cn-big{font-family:var(--serif);font-size:clamp(56px,7vw,92px);line-height:1;letter-spacing:-.02em;color:var(--sp)}
+.cn-card--dk .cn-big{color:#fff}
+.cn-big small{font:500 16px var(--sans);letter-spacing:0;color:#556058;margin-left:10px}
+.cn-card--dk .cn-big small{color:rgba(255,255,255,.7)}
+.cn-sub{font-size:15px;color:#556058}
+.cn-spark{width:100%;height:120px;display:block;margin-top:6px}
+.cn-spark path{fill:none;stroke:var(--s);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.cn-spark .a{fill:rgba(49,92,104,.12);stroke:none}
+.cn-spark text{font:600 11px var(--sans);fill:#556058;letter-spacing:.06em}
+.cn-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+.cn-stat{padding:14px 16px;border-radius:10px;background:var(--iv);border:1px solid var(--ln)}
+.cn-card--dk .cn-stat{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14)}
+.cn-stat b{display:block;font-family:var(--serif);font-weight:500;font-size:26px;color:var(--sp);line-height:1.1}
+.cn-card--dk .cn-stat b{color:#fff}
+.cn-stat span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#556058;font-weight:600}
+.cn-card--dk .cn-stat span{color:rgba(255,255,255,.65)}
+.cn-gauge{height:12px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden;margin-top:6px}
+.cn-gauge i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#7fb3c2,#e7d6ae);transition:width 1.6s var(--e)}
+.cn-wx{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.cn-wx svg{width:72px;height:72px;color:var(--s)}
+.cn-days{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:4px}
+.cn-day{text-align:center;padding:14px 8px;border-radius:10px;background:var(--iv);border:1px solid var(--ln)}
+.cn-day span{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#556058}
+.cn-day svg{width:30px;height:30px;color:var(--s);margin:8px auto}
+.cn-day b{font-weight:500;color:var(--sp)}
+.cn-day em{font-style:normal;color:#556058;margin-left:4px}
+.cn-roads{display:grid;gap:10px}
+.cn-src{font-size:13px;color:#556058;margin-top:auto;padding-top:10px;border-top:1px solid var(--ln)}
+.cn-card--dk .cn-src{border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.6)}
+.cn-err{font-size:15px;color:#9b3b2f}
+@media (max-width:1000px){.cn-grid,.cn-grid--3{grid-template-columns:1fr}}
+@media (max-width:600px){.cn-card{padding:22px 18px}.cn-stats{grid-template-columns:1fr 1fr}.cn-days{grid-template-columns:repeat(2,1fr)}.cn-wx{grid-template-columns:1fr}}
+</style>
+<main>
+<section class="ph" aria-label="River and conditions">
+  <div class="ph__c">
+    <img src="https://static.wixstatic.com/media/2fde66_78a44d63165b479996883475566b1984~mv2.webp/v1/fill/w_2000,h_900,al_c,q_80/river.jpg" alt="An angler casting on the Blue River in autumn">
+    <div class="ph__t">
+      <span class="lb in">River and conditions</span>
+      <h1 class="h1 in">Before you head to the river.</h1>
+      <p class="in">Kremmling weather, live I-70 cameras, Blue River and Colorado River flows, Green Mountain Reservoir and cameras around the valley, each from its official source.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec sec--st">
+  <div class="w">
+    <header class="hd rv">
+      <span class="ix">01</span>
+      <div><span class="lb">Weather and roads</span><h2 class="h2">Kremmling weather and I-70.</h2></div>
+      <p class="mu">Mountain weather changes fast. Check before you travel.</p>
+    </header>
+    <div class="cn-grid" style="grid-template-columns:1fr 1fr">
+      <article class="cn-card rv" aria-live="polite">
+        <div class="cn-top"><div><span class="lb">Kremmling, Colorado</span><h3 class="h3" style="margin-top:8px">Local weather</h3></div><span class="cn-live"><i aria-hidden="true"></i>Live</span></div>
+        <div class="cn-wx"><svg id="wxIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"></svg><div><div class="cn-big" id="temp">—<small>°F</small></div><p class="cn-sub" id="wxSub">Loading the forecast…</p></div></div>
+        <div class="cn-days" id="days"></div>
+        <p class="cn-src">Now and forecast from <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>. Full forecast: <a href="https://www.wunderground.com/forecast/us/co/kremmling" target="_blank" rel="noopener">Weather Underground, Kremmling</a> · <a href="https://forecast.weather.gov/MapClick.php?lat=40.059&lon=-106.389" target="_blank" rel="noopener">National Weather Service</a>.</p>
+      </article>
+      <article class="cn-card rv">
+        <div class="cn-top"><div><span class="lb">Colorado Department of Transportation</span><h3 class="h3" style="margin-top:8px">I-70 and Highway 9 road conditions</h3></div></div>
+        <p class="cn-sub">COtrip shows closures, chain laws, road work and live cameras. Open the map for I-70 from Denver to Silverthorne, then Highway 9 north to the community.</p>
+        <div class="cn-roads">
+          <a class="rw" href="https://www.cotrip.org/result/route/search?layers=traffic_incidents%2Croad_conditions%2Cchain%2Ftraction_law%2Cplow_tracker%2Cweather_alerts%2Cweather_radar&lat=39.6978&lng=-105.7424&zoom=10.36" target="_blank" rel="noopener"><div><b>I-70 Denver to Silverthorne</b><div class="mu">Live COtrip map: incidents, road conditions, chain law, plows, weather alerts and radar</div></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="rw" href="https://www.cotrip.org/" target="_blank" rel="noopener"><div><b>COtrip.org</b><div class="mu">Statewide conditions, cameras and alerts</div></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+          <a class="rw" href="https://www.codot.gov/travel/colorado-chain-law" target="_blank" rel="noopener"><div><b>Colorado chain and traction law</b><div class="mu">What is required on I-70 in winter</div></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        </div>
+        <p class="cn-src">CDOT does not allow its map inside other websites, so these open COtrip in a new tab. Call 511 in Colorado for road conditions by phone.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var fmt=function(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d==null?0:d})};
+  var when=function(iso){var d=new Date(iso);return d.toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'America/Denver'})+' MT'};
+  var fail=function(id,msg){var el=$(id);el.className='cn-err';el.textContent=msg};
+
+  /* Kremmling weather from Open-Meteo */
+  var ICONS={sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',cloud:'<path d="M7 18a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A4 4 0 1 1 17 18z"/>',rain:'<path d="M7 15a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A4 4 0 1 1 17 15z"/><path d="M8 18l-1 3M12 18l-1 3M16 18l-1 3"/>',snow:'<path d="M7 15a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A4 4 0 1 1 17 15z"/><path d="M8 19h.01M12 21h.01M16 19h.01M10 22h.01M14 22h.01"/>',storm:'<path d="M7 15a4 4 0 0 1 0-8 5 5 0 0 1 9.6-1.5A4 4 0 1 1 17 15z"/><path d="M13 14l-2 4h3l-2 4"/>',fog:'<path d="M4 10h16M3 14h18M5 18h14"/>'};
+  var code=function(c){return c<=1?['sun','Clear']:c<=3?['cloud',c==2?'Partly cloudy':'Overcast']:c<=48?['fog','Fog']:c<=67?['rain','Rain']:c<=77?['snow','Snow']:c<=82?['rain','Showers']:c<=86?['snow','Snow showers']:['storm','Thunderstorm']};
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=40.059&longitude=-106.389&current=temperature_2m,weather_code,wind_speed_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FDenver&forecast_days=4').then(function(r){return r.json()}).then(function(d){
+    var c=d.current,k=code(c.weather_code);
+    $('wxIcon').innerHTML=ICONS[k[0]];
+    $('temp').innerHTML=Math.round(c.temperature_2m)+'<small>°F</small>';
+    $('wxSub').textContent=k[1]+'. Wind '+Math.round(c.wind_speed_10m)+' mph, gusts '+Math.round(c.wind_gusts_10m)+' mph. Updated '+when(c.time)+'.';
+    $('days').innerHTML=d.daily.time.map(function(t,i){var kk=code(d.daily.weather_code[i]);var day=new Date(t+'T12:00:00').toLocaleDateString('en-US',{weekday:'short'});return'<div class="cn-day"><span>'+(i?day:'Today')+'</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[kk[0]]+'</svg><b>'+Math.round(d.daily.temperature_2m_max[i])+'°</b><em>'+Math.round(d.daily.temperature_2m_min[i])+'°</em><span style="margin-top:6px;text-transform:none;letter-spacing:0;font-weight:500">'+kk[1]+'</span></div>'}).join('');
+  }).catch(function(){fail('wxSub','The forecast did not load. Use the weather links below.')});
+})();
+</script>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Resident Guide | Blue Valley Acres</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{--s:#315C68;--sp:#263B35;--sg:#879586;--g:#C7A96B;--st:#E9E4D9;--iv:#F7F6F1;--ink:#242A28;--ln:rgba(38,59,53,.14);--e:cubic-bezier(.2,.8,.2,1);--serif:"Newsreader",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;--sh:0 1px 2px rgba(36,42,40,.06),0 18px 40px -18px rgba(36,42,40,.22)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:linear-gradient(180deg,#F3F8F0 0%,#706240 100%) no-repeat;background-size:100% 100%;min-height:100%}body{background:transparent}
+body{font-family:var(--sans);color:var(--ink);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:var(--s)}
+:focus-visible{outline:3px solid var(--g);outline-offset:3px;border-radius:4px}
+.w{max-width:1220px;margin:0 auto;padding:0 32px}
+.rd{max-width:740px}
+.lb{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--s)}
+.h1,.h2,.h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.08}
+.h1{font-size:clamp(42px,5.6vw,72px)}
+.h2{font-size:clamp(32px,4vw,50px)}
+.h3{font-size:24px;line-height:1.2}
+.ld{font-size:19px;color:#3a423f}
+.mu{color:#556058;font-size:16px}
+p+p{margin-top:16px}
+.sec{padding:96px 0}
+.sec--st{background:rgba(255,255,255,.22)}
+.hd{display:grid;grid-template-columns:90px 1fr 300px;gap:32px;align-items:end;padding-bottom:28px;margin-bottom:44px;border-bottom:1px solid var(--ln)}
+.ix{display:inline-flex;justify-content:center;align-items:center;width:52px;height:32px;border:1px solid var(--ln);border-radius:6px;font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--s)}
+.hd .lb{margin-bottom:14px}
+/* page hero */
+.ph{padding:20px 20px 0}
+.ph__c{position:relative;min-height:440px;border-radius:12px;overflow:hidden;display:flex;align-items:flex-end;background:var(--sp);color:#fff}
+.ph__c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph__c,.pf,.pg-g a,.pd-hero{box-shadow:0 6px 14px rgba(36,42,40,.18),0 30px 60px -22px rgba(36,42,40,.5)}
+@keyframes kbIn{from{transform:scale(1) rotate(0deg)}to{transform:scale(1.21) rotate(6deg)}}
+@keyframes kbOut{from{transform:scale(1.21) rotate(6deg)}to{transform:scale(1) rotate(0deg)}}
+.kb-in{animation:kbIn 22s ease-out both}
+.kb-out{animation:kbOut 22s ease-out both}
+.ph__c::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,38,34,.8) 0%,rgba(24,38,34,.45) 45%,rgba(24,38,34,.05) 80%)}
+.ph__t{position:relative;z-index:1;padding:56px;max-width:760px}
+.ph__t .lb{color:#e7d6ae;margin-bottom:16px}
+.ph__t p{margin-top:18px;font-size:19px;color:rgba(255,255,255,.9);max-width:600px}
+.in{opacity:0;transform:translateY(30px);filter:blur(8px);animation:in 1.05s var(--e) forwards}
+.in:nth-child(2){animation-delay:.12s}.in:nth-child(3){animation-delay:.24s}.in:nth-child(4){animation-delay:.36s}
+@keyframes in{to{opacity:1;transform:none;filter:none}}
+/* buttons */
+.bt{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:13px 22px;border-radius:8px;font:600 16px/1 var(--sans);text-decoration:none;overflow:hidden;border:1.5px solid transparent;cursor:pointer;transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e)}
+.bt svg{width:18px;height:18px;transition:transform .22s var(--e)}
+.bt:hover svg{transform:translateX(4px)}
+.bt::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s var(--e)}
+.bt:hover::after{transform:translateX(120%)}
+.bt--p{background:var(--s);color:#fff}.bt--p:hover{background:#264b55}
+.bt--o{border-color:var(--sp);color:var(--sp);background:transparent}.bt--o:hover{background:var(--sp);color:#fff}
+.bt--l{background:#fff;color:var(--sp)}
+.bt:disabled{opacity:.5;cursor:not-allowed}
+.lk{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--s);text-decoration:none;border-bottom:1.5px solid rgba(49,92,104,.3);padding-bottom:3px;transition:border-color .2s var(--e),gap .2s var(--e)}
+.lk:hover{border-color:var(--s);gap:12px}
+.lk svg{width:16px;height:16px}
+/* cards */
+.gr{display:grid;gap:20px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+.cd{position:relative;display:flex;flex-direction:column;gap:12px;padding:30px;border-radius:12px;background:#fff;border:1px solid var(--ln);color:var(--ink);text-decoration:none;transition:transform .24s var(--e),box-shadow .24s var(--e),background .24s var(--e),color .24s var(--e)}
+a.cd:hover,a.cd:focus-visible{transform:translateY(-6px);box-shadow:var(--sh);background:var(--sp);color:#fff}
+a.cd:hover p,a.cd:hover .mu{color:rgba(255,255,255,.82)}
+.cd p{font-size:16px;color:#4d5752}
+.ic{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;background:var(--iv);color:var(--s);transition:transform .24s var(--e),background .24s var(--e),color .24s var(--e)}
+a.cd:hover .ic{transform:rotate(-6deg) scale(1.08);background:rgba(255,255,255,.12);color:#e7d6ae}
+.ic svg{width:24px;height:24px}
+.go{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--s);transition:gap .24s var(--e),color .24s var(--e)}
+a.cd:hover .go{color:#e7d6ae;gap:12px}
+.go svg{width:16px;height:16px}
+.tg{display:inline-flex;align-self:flex-start;padding:5px 10px;border-radius:6px;background:var(--iv);border:1px solid var(--ln);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sp)}
+.tbd{display:inline;padding:1px 6px;border-radius:4px;background:rgba(199,169,107,.22);color:#6b5527;font-size:.92em}
+.nt{padding:22px 24px;border-radius:12px;background:#fff;border:1px solid var(--ln);border-left:4px solid var(--g);font-size:16px;color:#4d5752}
+.nt b{color:var(--sp)}
+/* photo */
+.pf{position:relative;border-radius:12px;overflow:hidden;background:var(--st)}
+.pf img{width:100%;height:100%;object-fit:cover}
+.sp{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+/* dark band */
+.dk{border-radius:12px;background:var(--sp);color:#fff;padding:56px}
+.dk .lb{color:#e7d6ae}
+.dk p{color:rgba(255,255,255,.86)}
+.dk a:not(.bt){color:#e7d6ae}
+/* list rows */
+.rw{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;border-radius:10px;background:#fff;border:1px solid var(--ln);color:var(--ink);text-decoration:none;transition:background .24s var(--e),color .24s var(--e),transform .24s var(--e)}
+a.rw:hover{background:var(--sp);color:#fff;transform:translateX(4px)}
+a.rw:hover .mu{color:rgba(255,255,255,.75)}
+.rw svg{width:18px;height:18px;flex:none}
+.rws{display:grid;gap:10px}
+.steps{counter-reset:s;display:grid;gap:14px}
+.steps li{list-style:none;counter-increment:s;display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:start;padding:22px 24px;border-radius:12px;background:#fff;border:1px solid var(--ln)}
+.steps li::before{content:counter(s,decimal-leading-zero);display:grid;place-items:center;height:32px;border:1px solid var(--ln);border-radius:6px;font-size:13px;font-weight:600;color:var(--s)}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(48px) scale(.98);transition:opacity 1s var(--e),transform 1s var(--e)}
+.js .rv.is-in{opacity:1;transform:none}
+@media (max-width:1000px){.hd{grid-template-columns:70px 1fr}.hd>p{grid-column:2}.g3{grid-template-columns:1fr 1fr}.sp{grid-template-columns:1fr;gap:40px}}
+@media (max-width:820px){.sec{padding:72px 0}.g2,.g3{grid-template-columns:1fr}.dk{padding:40px 28px}}
+@media (max-width:600px){body{font-size:16px}.w{padding:0 16px}.ph{padding:12px 12px 0}.ph__c{min-height:420px}.ph__c::after{background:linear-gradient(0deg,rgba(24,38,34,.9) 0%,rgba(24,38,34,.55) 55%,rgba(24,38,34,.1) 100%)}.ph__t{padding:32px 22px}.ph__t p,.ld{font-size:17px}.bt{width:100%}.hd{grid-template-columns:1fr;gap:14px;margin-bottom:30px}.hd>p{grid-column:1}.rw{padding:18px}.steps li{grid-template-columns:1fr;gap:10px}.steps li::before{width:52px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.in{opacity:1;transform:none;filter:none}.js .rv{opacity:1;transform:none}.kb-in,.kb-out{animation:none}}
+.nh-cmp{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.nh-cmp ul{list-style:none;display:grid;gap:10px;margin-top:6px}
+.nh-cmp li{display:flex;gap:10px;font-size:16px;color:#4d5752}
+.nh-cmp li::before{content:"";flex:none;width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--g)}
+.nh-faq{display:grid;gap:10px}
+.nh-faq details{border-radius:10px;background:#fff;border:1px solid var(--ln);padding:0 24px}
+.nh-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;font-weight:600;color:var(--sp)}
+.nh-faq summary::-webkit-details-marker{display:none}
+.nh-faq summary::after{content:"+";font:400 26px/1 var(--serif);color:var(--s);transition:transform .2s var(--e)}
+.nh-faq details[open] summary::after{transform:rotate(45deg)}
+.nh-faq details p{padding:0 0 22px;font-size:16px;color:#4d5752}
+@media (max-width:820px){.nh-cmp{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<section class="ph" aria-label="New resident guide">
+  <div class="ph__c">
+    <img src="https://static.wixstatic.com/media/2fde66_eb2bebc793784842b0268942675a27fb~mv2.jpg/v1/fill/w_2000,h_900,al_c,q_80/river.jpg" alt="A bend of the Blue River below the bluffs in autumn">
+    <div class="ph__t">
+      <span class="lb in">New here</span>
+      <h1 class="h1 in">Welcome to Blue Valley Acres.</h1>
+      <p class="in">We are glad you are here. Getting settled is easier when you know where to find the right information.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <header class="hd rv">
+      <span class="ix">01</span>
+      <div><span class="lb">First steps</span><h2 class="h2">Start with these steps.</h2></div>
+      <p class="mu">A good place to put down roots.</p>
+    </header>
+    <ol class="steps rd">
+      <li class="rv"><div>Confirm which Blue Valley Acres filing your property is in and review the documents that apply to it. <a href="/member-resources" target="_top">Land Share documents</a></div></li>
+      <li class="rv"><div>Learn what Blue Valley Acres Land Share Inc. manages and who to contact. <a href="#who">Who manages what</a></div></li>
+      <li class="rv"><div>Review current notices, meeting information and contact details before reaching out. <a href="/news" target="_top">News and notices</a></div></li>
+      <li class="rv"><div>Read the community's safety and stewardship guidance, including current fire restrictions and wildlife recommendations. <a href="/safety" target="_top">Safety and stewardship</a></div></li>
+      <li class="rv"><div>Ask a neighbor or use the Contact page if you are unsure where to begin. <a href="/contact" target="_top">Contact</a></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--st" id="who">
+  <div class="w">
+    <header class="hd rv">
+      <span class="ix">02</span>
+      <div><span class="lb">Who manages what</span><h2 class="h2">What the Land Share manages.</h2></div>
+      <p class="mu">Blue Valley Acres Land Share Inc. is the community organization for Land Share members.</p>
+    </header>
+    <div class="nh-cmp">
+      <div class="cd rv">
+        <span class="tg">Blue Valley Acres Land Share Inc.</span>
+        <h3 class="h3">Community and Land Share matters</h3>
+        <ul>
+          <li>Land Share documents and governing materials</li>
+          <li>Community notices and Land Share meetings</li>
+          <li>Common-area updates</li>
+          <li>Annual landowner dues</li>
+        </ul>
+        <p class="mu"><span class="tbd">Full list of responsibilities to confirm with the Land Share</span></p>
+        <a class="go" href="/contact" target="_top" style="text-decoration:none">Contact the Land Share <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="w">
+    <header class="hd rv">
+      <span class="ix">03</span>
+      <div><span class="lb">Frequently asked questions</span><h2 class="h2">Good questions to start with.</h2></div>
+      <p class="mu">Plain answers, with links to the organization that can confirm details.</p>
+    </header>
+    <div class="nh-faq rd">
+      <details class="rv"><summary>What is the Land Share?</summary><p>Blue Valley Acres Land Share Inc. is the community organization for Land Share members. It looks after Land Share documents, community notices and common-area matters, and collects annual landowner dues.</p></details>
+      <details class="rv"><summary>How do I pay annual landowner dues?</summary><p>Use the secure <a href="/pay-dues" target="_top">Pay Dues</a> page. Enter your parcel number and owner information so the payment is credited to the correct property.</p></details>
+      <details class="rv"><summary>Can I fish or use the river?</summary><p>River access and fishing depend on your property and the community's governing documents. Read <a href="/member-resources#river" target="_top">River Access and Fishing</a> before you go, and contact the Land Share if you are unsure.</p></details>
+      <details class="rv"><summary>Where do I find maps?</summary><p>Maps and common-area information are in <a href="/member-resources" target="_top">Member Resources</a>.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+(function(){var r=document.documentElement;if(!("IntersectionObserver" in window))return;r.classList.add("js");var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("is-in");io.unobserve(e.target);}});},{threshold:.15,rootMargin:"0px 0px -6% 0px"});document.querySelectorAll(".rv,.mk").forEach(function(el){io.observe(el);});var n=0,ko=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add(e.target.dataset.kb);ko.unobserve(e.target);}});},{threshold:.2});document.querySelectorAll("img").forEach(function(im){if(im.closest(".no-kb"))return;im.dataset.kb=(n++%2?"kb-out":"kb-in");ko.observe(im);});})();
+</script>
+<script>document.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("a"):null;if(!a)return;var h=a.getAttribute("href")||"";if(a.target!=="_top"||h.charAt(0)!=="/")return;e.preventDefault();parent.postMessage({bvaGo:h},"*")},true)</script>
+</body>
+</html>
